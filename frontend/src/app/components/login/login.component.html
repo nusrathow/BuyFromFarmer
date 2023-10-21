@@ -1,0 +1,51 @@
+<!--<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+          <img src="assets/img/handle.png" alt="">
+        </div>
+        <h5 class="text-center">Login Here!!</h5>
+        <form action="">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput [(ngModel)]="user.username" name="username" placeholder="Enter Here"/>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput type="password" [(ngModel)]="user.password" name="password" placeholder="Enter Here"/>
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Login</button>
+            <button class="ml10" mat-raised-button color="accent">Clear</button>
+            <small style="margin-left: 300px">New User??</small><a href="signup" style="display:inline;margin-left: 5px">Signup</a>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>-->
+
+
+<div id="signin-box">
+  <h2>Signin Here</h2>
+  <div style="color : red" *ngIf='error'>{{error}}</div>
+  <form name='signinForm' (submit)="doSignin()">
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td><input type='text' name='username' [(ngModel)]="username"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type='password' name='password' [(ngModel)]="password"/></td>
+      </tr>
+      <tr>
+        <td><input name="submit" type="submit" value="Signin" /></td>
+        <td>Don't have account? <a href="/signup" routerLink="/signup">Signup</a></td>
+      </tr>
+    </table>
+  </form>
+</div>

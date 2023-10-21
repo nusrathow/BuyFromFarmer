@@ -1,0 +1,25 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+          <img src="assets/img/handle.png" alt="">
+        </div>
+        <form (ngSubmit) = "onSubmit()" enctype="multipart/form-data">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput [(ngModel)]="user.name" name="username" placeholder="Enter Here"/>
+          </mat-form-field>
+
+
+              <input type="text" (change)="getName(name.value)" #name> <br/>
+              <input type="file" (change)="getFile($event)">
+          <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Login</button>
+            <button class="ml10" mat-raised-button color="accent">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

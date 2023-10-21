@@ -1,0 +1,75 @@
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+        <div class="container text-center">
+          <img src="assets/img/handle.png" alt="">
+        </div>
+        <h5 class="text-center">Farmer Details</h5>
+
+        <form (ngSubmit)="onSubmit()" [formGroup]="skillsForm">
+          <div class="example-container col-md-6 offset-md-3">
+            <mat-form-field>
+              <input matInput placeholder="User Name" formControlName="name">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Phone No" formControlName="phone">
+            </mat-form-field>
+
+            <mat-form-field>
+              <input matInput placeholder="Enter your password" [type]="hide ? 'password' : 'text'" formControlName="password">
+              <mat-icon matSuffix (click)="hide = !hide">{{hide ? 'visibility_off' : 'visibility'}}</mat-icon>
+            </mat-form-field>
+
+          </div>
+          <h5 class="text-center">Product Details</h5>
+          <div formArrayName="products">
+            <div *ngFor="let skill of products.controls; let i=index">
+              <div [formGroupName]="i" class="form-inline">
+
+                <mat-form-field>
+                  <mat-select placeholder="Select Category" formControlName="category" >
+                    <mat-option value="option">Select Category</mat-option>
+                    <mat-option *ngFor="let item of categories" [value]="item" (click)="getCatId(item.id)">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <mat-form-field class="ml10">
+                  <mat-select placeholder="Select Product" formControlName="productList">
+                    <mat-option value="option">Select Product</mat-option>
+                    <mat-option *ngFor="let item of productList" [value]="item.id" (click)="getProdId(item.id)">
+                      {{item.name}}
+                    </mat-option>
+                  </mat-select>
+                </mat-form-field>
+
+                <label class="ml10">price:</label>
+                <span matPrefix>1</span>
+                <span matPrefix>{{measurements}}</span>
+                <span matPrefix>/</span>
+                <span matPrefix>৳</span>
+                <input type="text" formControlName="price">
+
+                <label>quantity:</label>
+                <input type="text" formControlName="quantity">
+                <span matSuffix disabled>{{measurements}}</span>
+                <button (click)="removeSkill(i)" class="ml10">(-)</button>
+              </div>
+            </div>
+          </div>
+          <button type="button"  (click)="addSkills()">(+)</button>
+          <p class="text-center">
+            <button type="submit">Submit</button>
+          </p>
+        </form>
+  </div>
+</div>
+  {{this.skillsForm.value | json}}
+
+
+
+
+
+

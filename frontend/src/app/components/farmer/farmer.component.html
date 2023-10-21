@@ -1,0 +1,15 @@
+<div style="margin-left:520px;margin-top:90px">
+  <h5>Farmers</h5>
+</div>
+
+<div class="row mt40">
+  <div class="col-sm-3 mt20" *ngFor="let s of farmerList">
+    <div class="card" style="width: 17rem;" (click)="goToFarmerDetails(s.id)">
+      <img class="card-img-top" src="assets/Pictures/farmer1.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">{{s.name}}</h5>
+      </div>
+    </div>
+  </div>
+</div>
+

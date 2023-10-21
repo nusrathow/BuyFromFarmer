@@ -1,0 +1,18 @@
+<div style="margin-left:10px;margin-top:40px">
+  <h4></h4>
+</div>
+
+<div class="row mt20">
+  <div class="col-sm-3 mt20" *ngFor="let s of productList">
+    <div class="card" style="width: 17rem;">
+      <img class="card-img-top" src="assets/Pictures/farmer1.jpg" alt="Card image cap">
+      <div class="card-body">
+        <h5 class="card-title">Farmer:{{s.farmerId}}</h5>
+        <h6>Product:{{s.prodListId.name}}</h6>
+        <h6>Available:{{s.quantity}}{{s.prodListId.measurement}}</h6>
+        <h6>Price:{{s.price}}tk/{{s.prodListId.measurement}}</h6>
+        <button>Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

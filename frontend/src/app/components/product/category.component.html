@@ -1,0 +1,11 @@
+<div class="ml460 mt20">
+  <h5>Product Categories</h5>
+</div>
+
+<div class="row mt20">
+  <div class="col-sm-3 card w-40 ml10 mt-4" *ngFor="let s of categoryList" (click)="goToProductList(s.id)">
+    <div class="card-body">
+      <p class="card-text" style="text-align: center">{{s.name}}</p>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,89 @@
+<!--
+<div class="bootstrap-wrapper">
+  <div class="container">
+    <div class="row" style="margin-top: 20px">
+      <div class="col-md-6 offset-md-3">
+        <div class="container text-center">
+          <img src="assets/img/handle.png" alt="">
+        </div>
+        <h5 class="text-center">Register Here!!</h5>
+
+        <form (ngSubmit)="formSubmit()">
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>User Name</mat-label>
+            <input matInput [(ngModel)]="user.username" name="username" placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Password</mat-label>
+            <input matInput [(ngModel)]="user.password" name="password" placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>First Name</mat-label>
+            <input matInput [(ngModel)]="user.firstname" name="firstname" placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Last Name</mat-label>
+            <input matInput [(ngModel)]="user.lastname" name="lastname" placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Email Address</mat-label>
+            <input type="email" [(ngModel)]="user.email" name="email" matInput placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <mat-form-field class="full-width" appearance="outline">
+            <mat-label>Phone No</mat-label>
+            <input type="number" [(ngModel)]="user.phone" name="phone" matInput placeholder="Enter Here"/>
+            <mat-icon matSuffix></mat-icon>
+          </mat-form-field>
+
+          <div class="container text-center">
+            <button type="submit" mat-raised-button color="primary">Register</button>
+            <button style="margin-left: 20px" mat-raised-button color="accent">Clear</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+-->
+<div id="signup-box">
+  <h2>Signup Here</h2>
+  <div style="color : red" *ngIf='error'>{{error}}</div>
+  <div style="color : green" *ngIf='success'>{{success}}</div>
+  <form name='signupForm' (submit)="doSignup()">
+    <table>
+      <tr>
+        <td>Username:</td>
+        <td><input type='text' name='username' [(ngModel)]="username"></td>
+      </tr>
+      <tr>
+        <td>Password:</td>
+        <td><input type='password' name='password' [(ngModel)]="password"/></td>
+      </tr>
+      <tr>
+        <td>Roles:</td>
+        <td>
+          <div *ngFor="let role of user_roles">
+            <input [(ngModel)]="role.selected" name="{{ role.name }}" type="checkbox" id="{{role.name}}" (change)="onChangeCategory($event, role)">
+            <label class="form-check-label" for="{{role.name}}">
+              {{role.name}}
+            </label>
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td><input name="submit" type="submit" value="Signup" /></td>
+        <td>Have account? <a href="/signin" routerLink="/signin">Signin</a></td>
+      </tr>
+    </table>
+  </form>
+</div>

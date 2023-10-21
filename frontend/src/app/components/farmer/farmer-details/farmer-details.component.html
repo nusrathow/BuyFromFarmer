@@ -1,0 +1,33 @@
+<div>
+  <div class="row">
+    <div class="col-sm-6">
+      <div class="card mt20">
+        <img src="../../../../assets/Pictures/farmer1.jpg" class="img-fluid" alt="Responsive image">
+      </div>
+    </div>
+    <div class="col-sm-6">
+      <h4 class="mt20">{{farmerDetails.name}}</h4>
+      <h5 class="mt20">From Rangpur</h5>
+      <h6 class="mt20">He is a farmer from Rangpur. Passionate about this and that.</h6>
+    </div>
+  </div>
+
+  <div class="mt20">
+    <div>Product Sells</div>
+    <div class="row mt20">
+      <div class="col-sm-3" *ngFor="let s of farmerDetails.products">
+        <div class="card">
+          <img src="../../../../assets/Pictures/farmer1.jpg" alt="Responsive image">
+        </div>
+        <div class="details">
+          <h6>{{s.prodListId.name}}</h6>
+          <h6>Available: {{s.quantity}}{{s.prodListId.measurement}}</h6>
+          <h6>Price: {{s.price}}Tk/{{s.prodListId.measurement}}</h6>
+          <input (click)="addToCart()" placeholder="Add to Cart" style="height: 30px;width: 266px">
+        </div>
+      </div>
+      </div>
+    </div>
+</div>
+
+
